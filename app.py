@@ -8,7 +8,6 @@ def juego() -> None:
         try:
             consola.menu_principal()
             opcion = consola.pedir_int('Elija una opcion: ')
-            print()
             
             if opcion < 1 or opcion > 3:
                 raise ValueError
@@ -21,7 +20,7 @@ def juego() -> None:
     elif opcion == 2:
         logica_computadora()
     else:
-        print('Fin del juego.')
+        print('\nFin del juego.')
 
     # while opcion != 3:
     #     try:
