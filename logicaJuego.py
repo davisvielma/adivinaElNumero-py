@@ -5,7 +5,7 @@ import consola
 def logica_usuario() -> None:
     intento = 1
     numero = numero_aletorio(limite_inferior, limite_superior)
-    print(numero)
+    #print(numero)
 
     while intento <= numero_intentos:
         try:
@@ -18,15 +18,14 @@ def logica_usuario() -> None:
             
             print()
             intentos_restantes = numero_intentos - intento
-            intento_str1 = 'intentos' if intentos_restantes != 1 else 'intento'
-            intento_str2 = 'intentos' if intento != 1 else 'intento'
+            intento_str = 'intentos' if intentos_restantes != 1 and intento != 1 else 'intento'
 
             if numero_usuario < numero:
-                print(f'Tu numero es menor. Te queda {intentos_restantes} {intento_str1}.')
+                print(f'Tu numero es menor. Te queda {intentos_restantes} {intento_str}.')
             elif numero_usuario > numero:
-                print(f'Tu numero es mayor. Te queda {intentos_restantes} {intento_str1}.')
+                print(f'Tu numero es mayor. Te queda {intentos_restantes} {intento_str}.')
             else:
-                print(f'\nGanaste!!! El numuero a adivinar era {numero} y lo hiciste en {intento} {intento_str2}')
+                print(f'\nGanaste!!! El numuero a adivinar era {numero} y lo hiciste en {intento} {intento_str}.')
                 break
             
             intento += 1
