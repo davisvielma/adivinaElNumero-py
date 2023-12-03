@@ -34,4 +34,42 @@ def logica_usuario() -> None:
         print(f'\nHas perdido!!! El numero a adivinar era {numero}')
 
 def logica_computadora() -> None:
-    print('Opcion 2')
+    intento = 1
+    numero_usuario = None
+    l_i = limite_inferior
+    l_s = limite_superior
+    n_i = numero_intentos + 3
+
+    while intento <= n_i:
+        try:
+            #print()
+            
+            if not numero_usuario:
+                numero_usuario = consola.pedir_int(f'\n*Elige un numero a adivinar entre {limite_inferior} y {limite_superior}: ')
+
+                if numero_usuario < limite_inferior or numero_usuario > limite_superior:
+                    raise ValueError
+        
+            numero = numero_aletorio(l_i, l_s)
+
+            print()
+            intentos_restantes = n_i - intento
+            intento_str = 'intentos' if intentos_restantes != 1 and intento != 1 else 'intento'
+            
+            if numero < numero_usuario:
+                l_i = numero + 1
+                print(f'El numero {numero} es menor. Le queda a la computadora {intentos_restantes} {intento_str}')
+            elif numero > numero_usuario:
+                l_s = numero - 1
+                print(f'El numero {numero} es mayor. Le queda a la computadora {intentos_restantes} {intento_str}')
+            else:
+                print(f'Gano la computadora!!! El numuero a adivinar era {numero_usuario} y lo hizo en {intento} {intento_str}.')
+                break
+
+            intento += 1
+
+        except ValueError:
+            numero_usuario = None
+            print(f'\nError!!! Ingrese una opcion valida.')
+    else:
+        print(f'\nHa perdido la computadora!!! El numero a adivinar era {numero_usuario}')
