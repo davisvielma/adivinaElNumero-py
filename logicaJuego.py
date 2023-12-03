@@ -5,15 +5,13 @@ import consola
 def logica_usuario() -> None:
     intento = 1
     numero = numero_aletorio(limite_inferior, limite_superior)
-    #print(numero)
 
     while intento <= numero_intentos:
         try:
             print()
-            numero_usuario = consola.pedir_int(f'Elige un numero entre {limite_inferior} y {limite_superior}: ')
+            numero_usuario = consola.pedir_int(f'*Elige un numero entre {limite_inferior} y {limite_superior}: ')
             
             if numero_usuario < limite_inferior or numero_usuario > limite_superior:
-                print('antes de entrar en el supuesto error')
                 raise ValueError
             
             print()
