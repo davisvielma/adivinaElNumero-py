@@ -8,30 +8,27 @@ def logica_usuario() -> None:
 
     while intento <= numero_intentos:
         try:
-            print()
-            numero_usuario = consola.pedir_int(f'*Elige un numero entre {limite_inferior} y {limite_superior}: ')
+            numero_usuario = consola.pedir_int(f'\n*Elige un numero entre {limite_inferior} y {limite_superior}: ')
             
             if numero_usuario < limite_inferior or numero_usuario > limite_superior:
                 raise ValueError
             
-            print()
             intentos_restantes = numero_intentos - intento
             intento_str = 'intentos' if intentos_restantes != 1 and intento != 1 else 'intento'
 
             if numero_usuario < numero:
-                print(f'Tu numero es menor. Te queda {intentos_restantes} {intento_str}.')
+                print(f'\nTu numero es menor. Te queda {intentos_restantes} {intento_str}.')
             elif numero_usuario > numero:
-                print(f'Tu numero es mayor. Te queda {intentos_restantes} {intento_str}.')
+                print(f'\nTu numero es mayor. Te queda {intentos_restantes} {intento_str}.')
             else:
                 print(f'\nGanaste!!! El numuero a adivinar era {numero} y lo hiciste en {intento} {intento_str}.')
                 break
             
             intento += 1
-
         except ValueError:
             print(f'\nError!!! Ingrese una opcion valida.')
     else:
-        print(f'\nHas perdido!!! El numero a adivinar era {numero}')
+        print(f'\nHas perdido!!! El numero a adivinar era {numero}.')
 
 def logica_computadora() -> None:
     intento = 1
@@ -42,8 +39,6 @@ def logica_computadora() -> None:
 
     while intento <= n_i:
         try:
-            #print()
-            
             if not numero_usuario:
                 numero_usuario = consola.pedir_int(f'\n*Elige un numero a adivinar entre {limite_inferior} y {limite_superior}: ')
 
@@ -51,25 +46,22 @@ def logica_computadora() -> None:
                     raise ValueError
         
             numero = numero_aletorio(l_i, l_s)
-
-            print()
             intentos_restantes = n_i - intento
             intento_str = 'intentos' if intentos_restantes != 1 and intento != 1 else 'intento'
             
             if numero < numero_usuario:
                 l_i = numero + 1
-                print(f'El numero {numero} es menor. Le queda a la computadora {intentos_restantes} {intento_str}')
+                print(f'\nEl numero {numero} es menor. Le queda a la computadora {intentos_restantes} {intento_str}.')
             elif numero > numero_usuario:
                 l_s = numero - 1
-                print(f'El numero {numero} es mayor. Le queda a la computadora {intentos_restantes} {intento_str}')
+                print(f'\nEl numero {numero} es mayor. Le queda a la computadora {intentos_restantes} {intento_str}.')
             else:
-                print(f'Gano la computadora!!! El numuero a adivinar era {numero_usuario} y lo hizo en {intento} {intento_str}.')
+                print(f'\nGano la computadora!!! El numuero a adivinar era {numero_usuario} y lo hizo en {intento} {intento_str}.')
                 break
 
             intento += 1
-
         except ValueError:
             numero_usuario = None
             print(f'\nError!!! Ingrese una opcion valida.')
     else:
-        print(f'\nHa perdido la computadora!!! El numero a adivinar era {numero_usuario}')
+        print(f'\nHa perdido la computadora!!! El numero a adivinar era {numero_usuario}.')
