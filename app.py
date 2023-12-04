@@ -7,13 +7,13 @@ def juego() -> None:
     while opcion < 1 or opcion > 3:
         try:
             consola.menu_principal()
-            opcion = consola.pedir_int('*Elija una opcion: ')
+            opcion = consola.pedir_int('*Elija una opción: ')
             
             if opcion < 1 or opcion > 3:
                 raise ValueError
         
         except ValueError:
-            print(f'\nError!!! Ingrese una opcion valida.')
+            print(f'\nError!!! Ingrese una opción valida.')
 
     if opcion == 1:
         logica_usuario()

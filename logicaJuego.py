@@ -21,12 +21,12 @@ def logica_usuario() -> None:
             elif numero_usuario > numero:
                 print(f'\nTu numero es mayor. Te queda {intentos_restantes} {intento_str}.')
             else:
-                print(f'\nGanaste!!! El numuero a adivinar era {numero} y lo hiciste en {intento} {intento_str}.')
+                print(f'\nGanaste!!! El numero a adivinar era {numero} y lo hiciste en {intento} {intento_str}.')
                 break
             
             intento += 1
         except ValueError:
-            print(f'\nError!!! Ingrese una opcion valida.')
+            print(f'\nError!!! Ingrese una opción valida.')
     else:
         print(f'\nHas perdido!!! El numero a adivinar era {numero}.')
 
@@ -56,12 +56,12 @@ def logica_computadora() -> None:
                 l_s = numero - 1
                 print(f'\nEl numero {numero} es mayor. Le queda a la computadora {intentos_restantes} {intento_str}.')
             else:
-                print(f'\nGano la computadora!!! El numuero a adivinar era {numero_usuario} y lo hizo en {intento} {intento_str}.')
+                print(f'\nGano la computadora!!! El numero a adivinar era {numero_usuario} y lo hizo en {intento} {intento_str}.')
                 break
 
             intento += 1
         except ValueError:
             numero_usuario = None
-            print(f'\nError!!! Ingrese una opcion valida.')
+            print(f'\nError!!! Ingrese una opción valida.')
     else:
         print(f'\nHa perdido la computadora!!! El numero a adivinar era {numero_usuario}.')
